@@ -25,6 +25,8 @@ namespace CppCLR_WinformsProjekt {
 	private: System::Windows::Forms::RichTextBox^  richTextBox5;
 	private: System::Windows::Forms::RichTextBox^  richTextBox6;
 	private: System::Windows::Forms::Label^  label16;
+	private: System::Windows::Forms::RichTextBox^  richTextBox7;
+	private: System::Windows::Forms::RichTextBox^  richTextBox8;
 
 	public:
 		String ^ text_b;
@@ -50,7 +52,7 @@ namespace CppCLR_WinformsProjekt {
 	private: System::Windows::Forms::CheckBox^  checkBox1;
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::Button^  button1;
-	private: System::Windows::Forms::TextBox^  textBox1;
+
 
 
 	private: System::Windows::Forms::Label^  label6;
@@ -60,7 +62,7 @@ namespace CppCLR_WinformsProjekt {
 	private: System::Windows::Forms::Label^  label8;
 	private: System::Windows::Forms::CheckBox^  checkBox4;
 	private: System::Windows::Forms::Label^  label9;
-	private: System::Windows::Forms::TextBox^  textBox4;
+
 	private: System::Windows::Forms::Label^  label10;
 	private: System::Windows::Forms::CheckBox^  checkBox5;
 
@@ -85,9 +87,7 @@ namespace CppCLR_WinformsProjekt {
 	protected:
 
 	private:
-		/// <summary>
-		/// Erforderliche Designervariable.
-		/// </summary>
+
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
@@ -101,7 +101,6 @@ namespace CppCLR_WinformsProjekt {
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
 			this->label7 = (gcnew System::Windows::Forms::Label());
@@ -109,7 +108,6 @@ namespace CppCLR_WinformsProjekt {
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->checkBox4 = (gcnew System::Windows::Forms::CheckBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->checkBox5 = (gcnew System::Windows::Forms::CheckBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -136,6 +134,8 @@ namespace CppCLR_WinformsProjekt {
 			this->richTextBox5 = (gcnew System::Windows::Forms::RichTextBox());
 			this->richTextBox6 = (gcnew System::Windows::Forms::RichTextBox());
 			this->label16 = (gcnew System::Windows::Forms::Label());
+			this->richTextBox7 = (gcnew System::Windows::Forms::RichTextBox());
+			this->richTextBox8 = (gcnew System::Windows::Forms::RichTextBox());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -208,15 +208,6 @@ namespace CppCLR_WinformsProjekt {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
 			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(194, 35);
-			this->textBox1->Multiline = true;
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(228, 38);
-			this->textBox1->TabIndex = 7;
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &Form1::textBox1_TextChanged);
-			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
@@ -286,15 +277,6 @@ namespace CppCLR_WinformsProjekt {
 			this->label9->TabIndex = 16;
 			this->label9->Text = L"Klucz";
 			this->label9->Click += gcnew System::EventHandler(this, &Form1::label9_Click);
-			// 
-			// textBox4
-			// 
-			this->textBox4->Location = System::Drawing::Point(652, 38);
-			this->textBox4->Multiline = true;
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(228, 38);
-			this->textBox4->TabIndex = 17;
-			this->textBox4->TextChanged += gcnew System::EventHandler(this, &Form1::textBox4_TextChanged);
 			// 
 			// label10
 			// 
@@ -408,7 +390,7 @@ namespace CppCLR_WinformsProjekt {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(102, 662);
+			this->button4->Location = System::Drawing::Point(93, 662);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(75, 23);
 			this->button4->TabIndex = 31;
@@ -432,14 +414,14 @@ namespace CppCLR_WinformsProjekt {
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(75, 23);
 			this->button6->TabIndex = 33;
-			this->button6->Text = L"Czyœæ pola";
+			this->button6->Text = L"Reset";
 			this->button6->UseVisualStyleBackColor = true;
 			this->button6->Click += gcnew System::EventHandler(this, &Form1::button6_Click);
 			// 
 			// richTextBox1
 			// 
 			this->richTextBox1->BackColor = System::Drawing::Color::LightGray;
-			this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Courier New", 9));
+			this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Courier New", 8));
 			this->richTextBox1->Location = System::Drawing::Point(12, 475);
 			this->richTextBox1->Name = L"richTextBox1";
 			this->richTextBox1->Size = System::Drawing::Size(399, 181);
@@ -490,7 +472,7 @@ namespace CppCLR_WinformsProjekt {
 			// richTextBox2
 			// 
 			this->richTextBox2->BackColor = System::Drawing::Color::LightGray;
-			this->richTextBox2->Font = (gcnew System::Drawing::Font(L"Courier New", 9));
+			this->richTextBox2->Font = (gcnew System::Drawing::Font(L"Courier New", 8));
 			this->richTextBox2->Location = System::Drawing::Point(470, 475);
 			this->richTextBox2->Name = L"richTextBox2";
 			this->richTextBox2->Size = System::Drawing::Size(399, 181);
@@ -518,9 +500,9 @@ namespace CppCLR_WinformsProjekt {
 			// 
 			// richTextBox4
 			// 
-			this->richTextBox4->Location = System::Drawing::Point(12, 311);
+			this->richTextBox4->Location = System::Drawing::Point(3, 311);
 			this->richTextBox4->Name = L"richTextBox4";
-			this->richTextBox4->Size = System::Drawing::Size(410, 96);
+			this->richTextBox4->Size = System::Drawing::Size(419, 96);
 			this->richTextBox4->TabIndex = 42;
 			this->richTextBox4->Text = L"";
 			this->richTextBox4->TextChanged += gcnew System::EventHandler(this, &Form1::richTextBox4_TextChanged);
@@ -537,7 +519,7 @@ namespace CppCLR_WinformsProjekt {
 			// 
 			this->richTextBox6->Location = System::Drawing::Point(470, 311);
 			this->richTextBox6->Name = L"richTextBox6";
-			this->richTextBox6->Size = System::Drawing::Size(410, 96);
+			this->richTextBox6->Size = System::Drawing::Size(427, 96);
 			this->richTextBox6->TabIndex = 44;
 			this->richTextBox6->Text = L"";
 			this->richTextBox6->TextChanged += gcnew System::EventHandler(this, &Form1::richTextBox6_TextChanged);
@@ -551,11 +533,29 @@ namespace CppCLR_WinformsProjekt {
 			this->label16->TabIndex = 45;
 			this->label16->Text = L"Rezultat";
 			// 
+			// richTextBox7
+			// 
+			this->richTextBox7->Location = System::Drawing::Point(194, 38);
+			this->richTextBox7->Name = L"richTextBox7";
+			this->richTextBox7->Size = System::Drawing::Size(228, 38);
+			this->richTextBox7->TabIndex = 46;
+			this->richTextBox7->Text = L"";
+			// 
+			// richTextBox8
+			// 
+			this->richTextBox8->Location = System::Drawing::Point(652, 32);
+			this->richTextBox8->Name = L"richTextBox8";
+			this->richTextBox8->Size = System::Drawing::Size(228, 38);
+			this->richTextBox8->TabIndex = 47;
+			this->richTextBox8->Text = L"";
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(899, 693);
+			this->Controls->Add(this->richTextBox8);
+			this->Controls->Add(this->richTextBox7);
 			this->Controls->Add(this->label16);
 			this->Controls->Add(this->richTextBox6);
 			this->Controls->Add(this->richTextBox5);
@@ -582,7 +582,6 @@ namespace CppCLR_WinformsProjekt {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->checkBox5);
 			this->Controls->Add(this->label10);
-			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->checkBox4);
 			this->Controls->Add(this->label8);
@@ -590,7 +589,6 @@ namespace CppCLR_WinformsProjekt {
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->checkBox2);
 			this->Controls->Add(this->label6);
-			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->checkBox1);
@@ -643,18 +641,16 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		this->checkBox2->Checked = false;
 		this->checkBox3->Checked = false;
 		this->checkBox4->Checked = false;
-		control_t = 1;
-		control_k = 1;
+		part1.clear();
+		part2.clear();
+		part3.clear();
+		part4.clear();
+		heading.clear();
 	}
 	
 	
 
 }
-private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-	
-
-}
-
 private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -662,7 +658,7 @@ private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  
 
 private: System::Void checkBox2_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 	
-	if ((control_dk == 1 || control_dt == 1) || (control_dk == 1 && control_dt == 1))
+	if ((control_k == 1 || control_t == 1) || (control_k == 1 && control_t == 1))
 	{
 		std::string aqua = "Pola klucz i tekst do szyfrowania nie mog¹ byæ puste!";
 		String ^ message_error = gcnew String(aqua.c_str());
@@ -670,15 +666,15 @@ private: System::Void checkBox2_CheckedChanged(System::Object^  sender, System::
 	}
 	else
 	{
-		clear_visual();
 		String ^ message_b = gcnew String(visual.c_str());
 		this->richTextBox1->Text = message_b;
+		clear_visual();
 	}
 }
 private: System::Void label7_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void checkBox3_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
-	if ((control_dk == 1 || control_dt == 1) || (control_dk == 1 && control_dt == 1))
+	if ((control_k == 1 || control_t == 1) || (control_k == 1 && control_t == 1))
 	{		
 		std::string aqua = "Pola klucz i tekst do szyfrowania nie mog¹ byæ puste!";
 		String ^ message_error = gcnew String(aqua.c_str());
@@ -699,9 +695,7 @@ private: System::Void checkBox4_CheckedChanged(System::Object^  sender, System::
 }
 private: System::Void label9_Click(System::Object^  sender, System::EventArgs^  e) {
 }
-private: System::Void textBox4_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-	
-}
+
 private: System::Void label10_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void checkBox5_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
@@ -732,8 +726,11 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 		this->checkBox6->Checked = false;
 		this->checkBox7->Checked = false;
 		this->checkBox8->Checked = false;
-		control_dk = 0;
-		control_dt = 0;
+		part1.clear();
+		part2.clear();
+		part3.clear();
+		part4.clear();
+		heading.clear();
 	}
 }
 
@@ -754,9 +751,9 @@ private: System::Void checkBox7_CheckedChanged(System::Object^  sender, System::
 
 	if ((control_dk == 1 || control_dt == 1) || (control_dk == 1 && control_dt == 1))
 	{
-		std::string aqua = "Pola klucz i tekst do deszyfrowania nie mog¹ byæ puste!";
-		String ^ message_error = gcnew String(aqua.c_str());
-		MessageBox::Show(message_error);
+		std::string warning = "Pola klucz i tekst do deszyfrowania nie mog¹ byæ puste!";
+		String ^ message = gcnew String(warning.c_str());
+		MessageBox::Show(message);
 	}
 	else
 	{
@@ -768,25 +765,25 @@ private: System::Void label14_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void checkBox8_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 	if ((control_dk == 1 || control_dt == 1) || (control_dk == 1 && control_dt == 1))
 	{
-		std::string aqua = "Pola klucz i tekst do deszyfrowania nie moga byæ puste!";
-		String ^ message_error = gcnew String(aqua.c_str());
+		std::string warning = "Pola klucz i tekst do deszyfrowania nie moga byæ puste!";
+		String ^ message_error = gcnew String(warning.c_str());
 		MessageBox::Show(message_error);
 	}
 	else
 	{
-		clear_visual();
 		String ^ message_c = gcnew String(visual_d.c_str());
-		this->richTextBox2->Text = message_c;		
+		this->richTextBox2->Text = message_c;
+		clear_visual_decryption();
 	}
 
 }
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
-	String ^ message_i = gcnew String(info.c_str());
-	MessageBox::Show(message_i);
+	String ^ message = gcnew String(info.c_str());
+	MessageBox::Show(message);
 }
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
-	String ^ message_pom = gcnew String(support.c_str());
-	MessageBox::Show(message_pom);
+	String ^ message = gcnew String(support.c_str());
+	MessageBox::Show(message);
 }
 private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
 	std::exit(42);
@@ -795,10 +792,9 @@ private: System::Void button5_Click(System::Object^  sender, System::EventArgs^ 
 }
 private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) {
 	key.clear();
+	key_words = 0;
 	text.clear();
-
-	this->textBox1->Clear();
-	this->textBox4->Clear();
+	heading.clear();
 
 	this->richTextBox1->Clear();
 	this->richTextBox2->Clear();
@@ -806,6 +802,8 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 	this->richTextBox4->Clear();
 	this->richTextBox5->Clear();
 	this->richTextBox6->Clear();
+	this->richTextBox7->Clear();
+	this->richTextBox8->Clear();
 
 	this->checkBox1->Checked = false;
 	this->checkBox2->Checked = false;
@@ -820,20 +818,32 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 	part2.clear();
 	part3.clear();
 	part4.clear();
-	heading.clear();
+	heading.clear();	
+
+	control_t = 1;
+	control_k = 1;
+
+	control_dk = 1;
+	control_dt = 1;
+
+	decrypted.clear();
+	buffer_decrypted.clear();
+
+	encrypted.clear();
+	buffer_encrypted2.clear();
 }
 private: System::Void richTextBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 	
 }
 private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {
 		key.clear();		
-		String^ key_b = textBox1->Text;
+		String^ key_b = richTextBox7->Text;
 
 		if (String::IsNullOrEmpty(key_b))
 		{
-			std::string aqua = "Pole klucz nie mo¿e byæ puste!";
-			String ^ message_error = gcnew String(aqua.c_str());
-			MessageBox::Show(message_error);
+			std::string warning = "Pole klucz nie mo¿e byæ puste!";
+			String ^ message = gcnew String(warning.c_str());
+			MessageBox::Show(message);
 			control_k = 1;
 		}
 		else
@@ -852,8 +862,8 @@ private: System::Void button7_Click(System::Object^  sender, System::EventArgs^ 
 	if (String::IsNullOrEmpty(text_b))
 	{
 		std::string aqua = "Pole tekst do zaszyfrowanie nie mo¿e byc puste!";
-		String ^ message_error = gcnew String(aqua.c_str());
-		MessageBox::Show(message_error);
+		String ^ message = gcnew String(aqua.c_str());
+		MessageBox::Show(message);
 		control_t = 1;
 	}
 	else
@@ -865,13 +875,13 @@ private: System::Void button7_Click(System::Object^  sender, System::EventArgs^ 
 }
 private: System::Void button9_Click(System::Object^  sender, System::EventArgs^  e) {
 	key.clear();
-	String ^ key_dec = textBox4->Text;
+	String ^ key_dec = richTextBox8->Text;
 
 	if (String::IsNullOrEmpty(key_dec))
 	{
-		std::string aqua = "Pole klucz nie mo¿e byc puste!";
-		String ^ message_error = gcnew String(aqua.c_str());
-		MessageBox::Show(message_error);
+		std::string warning = "Pole klucz nie mo¿e byc puste!";
+		String ^ message = gcnew String(warning.c_str());
+		MessageBox::Show(message);
 		control_dk = 1;
 	}
 	else
@@ -887,9 +897,9 @@ private: System::Void button10_Click(System::Object^  sender, System::EventArgs^
 
 	if (String::IsNullOrEmpty(text_c))
 	{
-		std::string aqua = "Pole tekst do deszyfrowania nie mo¿e byæ puste!";
-		String ^ message_error = gcnew String(aqua.c_str());
-		MessageBox::Show(message_error);
+		std::string warning = "Pole tekst do deszyfrowania nie mo¿e byæ puste!";
+		String ^ message = gcnew String(warning.c_str());
+		MessageBox::Show(message);
 		control_dt = 1;
 	}
 	else

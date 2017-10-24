@@ -27,7 +27,7 @@ int control_dk = 1;
 int control_dt = 1;
 int size_tekst = 0;
 int size_key = 0;
-int key_space = 0;
+int key_words = 0;
 int *nred_key;
 int rows = 0;
 int columns = 0;
@@ -57,6 +57,16 @@ void remove_signs(string &str)
 			if (str.find(" ") != -1)
 			{
 				result = str.find(" ");
+				str.erase(result, 1);
+			}
+			else if (str.find("!") != -1)
+			{
+				result = str.find("!");
+				str.erase(result, 1);
+			}
+			else if (str.find("?") != -1)
+			{
+				result = str.find("?");
 				str.erase(result, 1);
 			}
 			else if (str.find(",") != -1)
@@ -89,9 +99,29 @@ void remove_signs(string &str)
 				result = str.find(")");
 				str.erase(result, 1);
 			}
+			else if (str.find("]") != -1)
+			{
+				result = str.find("]");
+				str.erase(result, 1);
+			}
+			else if (str.find("[") != -1)
+			{
+				result = str.find("[");
+				str.erase(result, 1);
+			}
+			else if (str.find("–") != -1)
+			{
+				result = str.find("–");
+				str.erase(result, 1);
+			}
 			else if (str.find("-") != -1)
 			{
 				result = str.find("-");
+				str.erase(result, 1);
+			}
+			else if (str.find("—") != -1)
+			{
+				result = str.find("—");
 				str.erase(result, 1);
 			}
 			else if (str.find("%") != -1)
@@ -112,6 +142,11 @@ void remove_signs(string &str)
 			else if (str.find("”") != -1)
 			{
 				result = str.find("”");
+				str.erase(result, 1);
+			}
+			else if (str.find("'") != -1)
+			{
+				result = str.find("'");
 				str.erase(result, 1);
 			}
 			else if (str.find("\n") != -1)
@@ -181,7 +216,7 @@ void remove_signs(string &str)
 void read_key()
 {
 	size_key = key.size();
-	key_space = count_word(key);
+	key_words = count_word(key);
 	remove_signs(key);
 	size_key = key.size();
 	for (int i = 0; i < key.length(); i++)
@@ -207,7 +242,7 @@ void read_key_from_file()
 	}
 	key = data1;
 	size_key = key.size();
-	key_space = count_word(key);
+	key_words = count_word(key);
 	remove_signs(key);
 	size_key = key.size();
 	file1.close();
@@ -280,153 +315,117 @@ string random_letter(int quantity)
 }
 
 int char_int_value(char x) {
-	int value;
-	switch (x) {
-	case 'a': {
-		value = 1;
-		break;
-	}
-	case '¹': {
-		value = 2;
-		break;
-	}
-	case 'b': {
-		value = 3;
-		break;
-	}
-	case 'c': {
-		value = 4;
-		break;
-	}
-	case 'æ': {
-		value = 5;
-		break;
-	}
-	case 'd': {
-		value = 6;
-		break;
-	}
-	case 'e': {
-		value = 7;
-		break;
-	}
-	case 'ê': {
-		value = 8;
-		break;
-	}
-	case 'f': {
-		value = 9;
-		break;
-	}
-	case 'g': {
-		value = 10;
-		break;
-	}
-	case 'h': {
-		value = 11;
-		break;
-	}
-	case 'i': {
-		value = 12;
-		break;
-	}
-	case 'j': {
-		value = 13;
-		break;
-	}
-	case 'k': {
-		value = 14;
-		break;
-	}
-	case 'l': {
-		value = 15;
-		break;
-	}
-	case '³': {
-		value = 16;
-		break;
-	}
-	case 'm': {
-		value = 17;
-		break;
-	}
-	case 'n': {
-		value = 18;
-		break;
-	}
-	case 'ñ': {
-		value = 19;
-		break;
-	}
-	case 'o': {
-		value = 20;
-		break;
-	}
-	case 'ó': {
-		value = 21;
-		break;
-	}
-	case 'p': {
-		value = 22;
-		break;
-	}
-	case 'q': {
-		value = 23;
-		break;
-	}
-	case 'r': {
-		value = 24;
-		break;
-	}
-	case 's': {
-		value = 25;
-		break;
-	}
-	case 'œ': {
-		value = 26;
-		break;
-	}
-	case 't': {
-		value = 27;
-		break;
-	}
-	case 'u': {
-		value = 28;
-		break;
-	}
-	case 'v': {
-		value = 29;
-		break;
-	}
-	case 'w': {
-		value = 30;
-		break;
-	}
-	case 'x': {
-		value = 31;
-		break;
-	}
-	case 'y': {
-		value = 32;
-		break;
-	}
-	case 'z': {
-		value = 33;
-		break;
-	}
-	case 'Ÿ': {
-		value = 34;
-		break;
-	}
-	case '¿': {
-		value = 35;
-		break;
-	}
-	default: {
-		break;
-	}
-	}
-	return value;
+    int value;
+    switch (x) {
+        case 'a': {
+            value = 1;
+            break;
+        }
+        case 'b': {
+            value = 2;
+            break;
+        }
+        case 'c': {
+            value = 3;
+            break;
+        }
+        case 'd': {
+            value = 4;
+            break;
+        }
+        case 'e': {
+            value = 5;
+            break;
+        }
+        case 'f': {
+            value = 6;
+            break;
+        }
+        case 'g': {
+            value = 7;
+            break;
+        }
+        case 'h': {
+            value = 8;
+            break;
+        }
+        case 'i': {
+            value = 9;
+            break;
+        }
+        case 'j': {
+            value = 10;
+            break;
+        }
+        case 'k': {
+            value = 11;
+            break;
+        }
+        case 'l': {
+            value = 12;
+            break;
+        }
+        case 'm': {
+            value = 13;
+            break;
+        }
+        case 'n': {
+            value = 14;
+            break;
+        }
+        case 'o': {
+            value = 15;
+            break;
+        }
+        case 'p': {
+            value = 16;
+            break;
+        }
+        case 'q': {
+            value = 17;
+            break;
+        }
+        case 'r': {
+            value = 18;
+            break;
+        }
+        case 's': {
+            value = 19;
+            break;
+        }
+        case 't': {
+            value = 20;
+            break;
+        }
+        case 'u': {
+            value = 21;
+            break;
+        }
+        case 'v': {
+            value = 22;
+            break;
+        }
+        case 'w': {
+            value = 23;
+            break;
+        }
+        case 'x': {
+            value = 24;
+            break;
+        }
+        case 'y': {
+            value = 25;
+            break;
+        }
+        case 'z': {
+            value = 26;
+            break;
+        }
+        default: {
+            break;
+        }
+    }
+    return value;
 }
 
 int *string_int_values(string key) {
@@ -479,7 +478,7 @@ void number_key()
 void encryption()
 {
 	remove_signs(text);
-	rows = ceil(size_tekst / size_key);
+	rows = ceil((size_tekst + key_words) / size_key);
 	rows++;
 	char **matrix1 = new char *[int(rows)];
 	columns = key.size();
@@ -533,7 +532,9 @@ void encryption()
 			buffer_encrypted = buffer_encrypted + matrix1[k][index];
 		}
 	}
-	string buffer = random_letter(key_space);
+	string buffer;
+	buffer.clear();
+	buffer= random_letter(key_words);
 	buffer_encrypted = buffer_encrypted + buffer;
 	remove_signs(buffer_encrypted);
 	int strind2 = 0;
@@ -599,21 +600,20 @@ void encryption()
 		delete[] matrix2[i];
 	delete[] matrix2;
 
-	heading += "\n";
-
-	visual = heading + part1 + "\n" + heading + part2 + "\n" + encrypted;
+	visual = "SZYFROWANIE\n\nETAP 1\n" + heading + "\n" + part1 + "\n" + "ETAP 2\n" + heading + "\n" + part2 + "\n" + "TEKST ZASZYFROWANY\n" + encrypted;
 }
 
 void decryption()
 {
-	string input;
-	input.clear();
-	input = text;
+	string encrypt;
+	int bezp = 0;
+	encrypt.clear();
+	encrypt = text;
 	columns = key.size();
 	rows = floor(size_tekst / size_key);
 	rows++;
-
-	int real_size = input.size();
+	int buf = rows;
+	int real_size = encrypt.size();
 	int app_size = columns * rows;
 	int diff_size = app_size - real_size;
 
@@ -622,6 +622,7 @@ void decryption()
 	{
 		matrix3[i] = new char[columns];
 	}
+
 	for (int i = columns - diff_size; i<columns; i++)
 	{
 		matrix3[rows - 1][i] = ' ';
@@ -630,6 +631,8 @@ void decryption()
 	int ind = 0;
 	int minimum = 1;
 	int strind = 0;
+	string tempb;
+	tempb.clear();
 
 	for (int i = 0; i < key.size(); i++)
 	{
@@ -647,31 +650,34 @@ void decryption()
 		{
 			if (matrix3[k][ind] != ' ')
 			{
-				matrix3[k][ind] = input[strind];
+				matrix3[k][ind] = encrypt[strind];
 
-				if (strind<input.size())
+				if (strind<encrypt.size())
 				{
 					strind++;
 				}
 			}
 		}
+
 	}
 
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < columns; j++)
 		{
-			buffer_decrypted = buffer_decrypted + matrix3[i][j];
 			part3 = part3 + matrix3[i][j] + "  ";
+			tempb += matrix3[i][j];
 		}
 		part3 = part3 + '\n';
 	}
+	remove_signs(tempb);
+	int k1=tempb.size();
+	int pp = tempb.size() - key_words;
+	tempb.erase(pp, key_words);
+	int k2 = tempb.size();
+	string ks = tempb;
 
-	int real_size1 = buffer_decrypted.size();
-	int app_size1 = columns*rows;
-	int diff_size1 = 0;
-	diff_size1 = app_size1 - real_size1;
-	int shift = diff_size + key_space;
+	int shift = diff_size+key_words;
 
 	char **matrix4 = new char *[rows + 1];
 	for (int i = 0; i < rows; i++)
@@ -679,10 +685,18 @@ void decryption()
 		matrix4[i] = new char[columns + 1];
 	}
 
-	for (int i = columns - shift; i<columns; i++)
+	rows = floor(tempb.size() / size_key);
+	rows++;
+	real_size = tempb.size();
+	app_size = columns * rows;
+	diff_size = app_size - real_size;
+
+
+	for (int i = columns - diff_size; i<columns; i++)
 	{
 		matrix4[rows - 1][i] = ' ';
 	}
+
 
 	int ind1 = 0;
 	int minimum2 = 1;
@@ -702,20 +716,12 @@ void decryption()
 		{
 			if (matrix4[k][ind1] != ' ')
 			{
-				matrix4[k][ind1] = buffer_decrypted[strind1];
-				if (strind1<buffer_decrypted.size())
+				matrix4[k][ind1] = tempb[strind1];
+				if (strind1 < tempb.size())
 				{
 					strind1++;
 				}
 			}
-		}
-	}
-
-	for (int i = 0; i < rows; i++)
-	{
-		for (int j = 0; j < columns; j++)
-		{
-			cout << matrix4[i][j] << " ";
 		}
 	}
 
@@ -729,11 +735,15 @@ void decryption()
 		part4 = part4 + "\n";
 	}
 
-	visual_d = heading + "\n" + part3 + "\n" + heading + "\n" + part4 + "\n" + decrypted;
+	visual_d = "DESZYFROWANIE\n\nETAP 1\n"+heading + "\n" + part3 + "\n" + "ETAP 2\n" + heading + "\n" + part4 + "\n" + "TEKST ZDESZYFROWANY\n"+ decrypted;
 
 	for (int i = 0; i < rows; i++)
 		delete[] matrix3[i];
 	delete[] matrix3;
+
+	for (int i = 0; i < rows; i++)
+		delete[] matrix4[i];
+	delete[] matrix4;
 }
 
 void save_encrypted_to_file()
@@ -758,17 +768,24 @@ void clear_visual()
 	part2.clear();
 	part3.clear();
 	part4.clear();
-	heading.clear();
+	visual.clear();
 }
 
-string info1 = "Alfabet wejsciowy : \nma³e i wielkie litery alfabetu polskiego, podstawowe znaki interpunkcyjne, cyfry. \n\nAlfabet wyjsciowy : \nmale litery alfabetu polskiego \n\nPodczas szyfrowania wielkie litery s¹ zamieniane na ma³e a cyfry, odstêpy, znaki interpunkcyjne i specjalne s¹ usuwane. \n\n";
+void clear_visual_decryption()
+{
+	part1.clear();
+	part2.clear();
+	visual_d.clear();
+}
+
+string info1 = "Alfabet wejsciowy : \nma³e i wielkie litery alfabetu polskiego (w kluczu bez polskich znaków), podstawowe znaki interpunkcyjne i specjalne, cyfry. \n\nAlfabet wyjsciowy : \nmale litery alfabetu polskiego \n\nPodczas szyfrowania wielkie litery s¹ zamieniane na ma³e a cyfry, odstêpy, znaki interpunkcyjne i specjalne s¹ usuwane. \n\n";
 string info2 = "Opis algorytmu : \n\nSzyfrowanie : \nLitery w kluczu sa odpowiednio numerowane. Pod blokiem z numeracj¹ w macierzy o wymiarach liczba znakow w kluczu x iloraz liczby znakow w tekscie wejsciowym i liczby znakow w kluczu zapisywany jest tekst wejœciowy. Nastêpnie tekst jest przepisywany kolumnami do nowej macierzy o tych samych wymiarach wed³ug kolejnoœci wyznaczonej przez numeracjê liter w kluczu dodawane s¹ symbole puste i tekst jest przepisywany wed³ug tej samej kolejnoœci na wyjœcie po wczeœniejszym podzieleniu na grupy 5 znakowe. \n\n";
-string info3 = "Deszyfrowanie : \nTekst do zdeszfrowania jest zapisywany w macierzy o w/w wymiarach, nastêpnie tekst jest przepisywany kolumnami do nowej macierzy wed³ug kolejnoœci wyznaczonej przez numeracje liter w kluczu. Tekst po przepisaniu wierszami z macierzy podawany jest na wyjœcie.\n\n";
+string info3 = "Deszyfrowanie : \nTekst do zdeszfrowania jest zapisywany w macierzy o w/w wymiarach, nastêpnie tekst jest przepisywany kolumnami do bufora wed³ug kolejnoœci wyznaczonej przez numeracje liter w kluczu. Usuwane s¹ symbole puste. Nastêpnie tekstjest przepisywany do nowej macierzy wed³ug wspomnianej kolejnoœci. Po przepisaniu z tej macierzy podawany jest na wyjœcie. Tekst wyjœciowy nie zawiera odstêpów.\n\n";
 string info4 = "Autor : Marek Rybicki";
 
 string info = info1 + info2 + info3;
 
-string srt1 = "Szyfrowanie \n1.Wprowadz klucz lub wybierz opcje pobrania z pliku tekstowego o nazwie key.txt.\n2.Wprowadz tekst do zaszyfrowania lub wypierz opcje pobrania z pliku in.txt.\n3.Opcjonalnie wybierz opcje wizualizacji przebiegu szyfrowania i zapisania rezultatu do pliku tekstowego o nazwie encrypted.txt.\n4. Naciœnij przycisk Szyfruj.\n\n";
-string srt2 = "Deszyfrowanie \n1.Wprowadz klucz lub wybierz opcje pobrania z pliku tekstowego o nazwie key.txt.\n2.Wprowadz tekst do deszyfrowania lub wypierz opcje pobrania z pliku in_d.txt.\n3.Opcjonalnie wybierz opcje wizualizacji przebiegu deszyfrowania i zapisania rezultatu do pliku tekstowego o nazwie decrypted.txt.\n5. Naciœnij przycisk Deszyfruj.";
+string srt1 = "Szyfrowanie \n1.Wprowadz klucz lub wybierz opcje pobrania z pliku tekstowego o nazwie key.txt.\n2.Wprowadz tekst do zaszyfrowania lub wypierz opcje pobrania z pliku in.txt.\n3.Opcjonalnie wybierz opcje wizualizacji przebiegu szyfrowania i zapisania rezultatu do pliku tekstowego o nazwie encrypted.txt.\n4. Naciœnij przycisk Szyfruj.\n5.Je¿eli chcesz zaszyfrowaæ nastêpny tekst naciœnij przycisk Reset.\n\n";
+string srt2 = "Deszyfrowanie \n1.Wprowadz klucz lub wybierz opcje pobrania z pliku tekstowego o nazwie key.txt.\n2.Wprowadz tekst do deszyfrowania lub wypierz opcje pobrania z pliku in_d.txt.\n3.Opcjonalnie wybierz opcje wizualizacji przebiegu deszyfrowania i zapisania rezultatu do pliku tekstowego o nazwie decrypted.txt.\n4. Naciœnij przycisk Deszyfruj.\n5.Je¿eli chcesz rozszyfrowaæ nastêpny tekst naciœnij przycisk Reset.";
 
 string support = srt1 + srt2;
